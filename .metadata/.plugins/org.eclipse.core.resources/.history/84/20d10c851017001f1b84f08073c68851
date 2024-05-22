@@ -1,0 +1,9 @@
+package com.company.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class SampleDAOimpl implements SampleDAO{
+	@Autowired
+	private SqlSession sqlSession;
+}

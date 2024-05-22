@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<select id="getMemberList" resultType="com.company.dto.Member">
+        select id, pw, name, email, tel, addr, postcode from member
+	</select>
+ 	<select id="getMember" parameterType="String" resultType="com.company.dto.Member">
+        SELECT id, pw, name, email, tel, addr, postcode FROM member WHERE id = #{id}
+    </select>
+    <insert id="insMember" parameterType="com.company.dto.Member">
+        INSERT INTO member (id, pw, name, tel, addr, postcode) VALUES (#{id}, #{pw}, #{name}, #{email}, #{tel}, #{addr}, #{postcode})
+    </insert>
+    <update id="changePw" parameterType="com.company.dto.Member">
+        UPDATE member SET pw = #{pw} WHERE id = #{id}
+    </update>     email tel
+    <update id="changeInfo" parameterType="com.company.dto.Member">
+        UPDATE member SET name = #{name}, email = #{email}, tel = #{tel}, addr = #{addr}, postcode = #{postcode}  WHERE id = #{id}
+    </update>    
+    
+    <delete id="delMember" parameterType="String">
+        DELETE FROM member WHERE id = #{id}
+    </delete>
+    
+    <select id="loginCheck" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM member WHERE id = #{id}
+    </select>
+    <select id="idCheck" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM member WHERE id = #{id}
+    </select>
+</mapper>

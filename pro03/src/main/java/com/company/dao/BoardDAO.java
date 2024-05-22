@@ -5,6 +5,7 @@ import java.util.List;
 import com.company.dto.Board;
 
 public interface BoardDAO {
+	public Board getTotalCount();
 	public List<Board> getBoardList();
 	public Board getBoard(int bno);
 	public int maxNum();

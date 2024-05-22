@@ -13,6 +13,13 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
+	
+
+	@Override
+	public Board getTotalCount() {
+		return sqlSession.selectOne("board.getTotalCount");
+	}
 
 	@Override
 	public List<Board> getBoardList() {

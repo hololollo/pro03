@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="inventory">
+	<select id="getInventoryList" resultType="com.company.dto.Inventory">
+		select * from inventory order by ino desc
+	</select>
+	<select id="getInventory" resultType="com.company.dto.Inventory">
+		select * from inventory where ino=#{ino}
+	</select>
+	<insert id="insInventory">
+		insert into inventory values (#{ino}, #{pno}, #{iprice}, #{oprice}, #{amount}, #{remark})
+	</insert>
+		<delete id="delFileboard">
+		delete from inventory where ino=#{ino}
+	</delete>
+</mapper>
+
+
+	

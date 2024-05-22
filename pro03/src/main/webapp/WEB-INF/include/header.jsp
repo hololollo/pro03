@@ -7,9 +7,9 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="${kpath }" class="logo-wrap">
-	<img src="./resources/images/logo.jpeg" alt="로고"/></a>
-
+    <div class="navbar-item">
+     <img src="./resources/image/logo.png" alt="로고">
+    </div>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -17,7 +17,6 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item">
@@ -25,28 +24,20 @@
       </a>
 
       <a class="navbar-item">
-        Documentation
+       About company
+      </a>
+      
+      <a class="navbar-item">
+       	Product info
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item is-selected">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
+        <a class="navbar-link">고객센터</a>
+		  <div class="navbar-dropdown">
+            <a class="navbar-item is-selected">공지사항</a>
+            <a class="navbar-item">고객의소리</a>
+          	<hr class="navbar-divider">
+          <a class="navbar-item">오시는 길</a>
         </div>
       </div>
     </div>

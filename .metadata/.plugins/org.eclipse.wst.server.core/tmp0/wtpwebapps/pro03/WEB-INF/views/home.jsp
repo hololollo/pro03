@@ -12,7 +12,9 @@
 
 </head>
 <body>
-<header></header>
+<header>
+<%@include file="../include/header.jsp" %>
+</header>
 <main></main>
 <h1>
 	Hello world!  

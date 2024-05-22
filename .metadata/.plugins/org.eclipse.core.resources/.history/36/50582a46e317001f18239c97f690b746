@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="basket">
+	<select id="getBasketList" resultType="com.company.dto.Basket">
+		select * from Basket order by bno desc
+	</select>
+		<select id="getBoardList" resultType="com.company.dto.Board">
+		select * from board order by resdate desc
+	</select>	
+	<select id="getBoard" resultType="com.company.dto.Board">
+		select * from board where bno=#{bno}
+	</select>
+	<select id="maxNum" resultType="int">
+		SELECT bno FROM board ORDER BY bno DESC LIMIT 1;
+	</select>
+	<insert id="insBoard">
+		insert into board values (#{bno}, #{title}, #{content}, #{author}, 
+		default, default)
+	</insert>
+	<update id="upBoard">
+		update board set title=#{title}, content=#{content} where bno=#{bno}
+	</update>
+	<delete id="delBoard">
+		delete from board where bno=#{bno}
+	</delete>
+</mapper>

@@ -13,6 +13,13 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Autowired
 	private BoardDAO boardDAO;
+	
+	
+
+	@Override
+	public Board getTotalCount() {
+		return boardDAO.getTotalCount();
+	}
 
 	@Override
 	public List<Board> getBoardList() {

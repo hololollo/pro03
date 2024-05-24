@@ -4,4 +4,6 @@
     <fullyQualifiedTypeName name="com.company.dto.Member"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.company.dto.Inventory"/>
+    <fullyQualifiedTypeName name="com.company.dto.Free"/>
 </qualifiedTypeNameHistroy>

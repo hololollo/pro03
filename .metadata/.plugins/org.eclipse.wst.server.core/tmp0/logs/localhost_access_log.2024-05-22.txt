@@ -39,3 +39,6 @@
 0:0:0:0:0:0:0:1 - - [22/May/2024:14:34:22 +0900] "GET /company/ HTTP/1.1" 200 1993
 0:0:0:0:0:0:0:1 - - [22/May/2024:14:34:22 +0900] "GET /company/resources/css/bulma.css HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [22/May/2024:14:34:22 +0900] "GET /company/resources/image/logo.png HTTP/1.1" 200 35218
+127.0.0.1 - - [22/May/2024:16:37:17 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [22/May/2024:16:37:18 +0900] "GET /company/ HTTP/1.1" 200 1993
+0:0:0:0:0:0:0:1 - - [22/May/2024:16:37:18 +0900] "GET /company/resources/image/logo.png HTTP/1.1" 304 -

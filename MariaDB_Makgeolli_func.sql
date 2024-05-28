@@ -165,3 +165,15 @@ where bno=1;
 
 -- 장바구니 정보 제거
 delete from basket where bno=1;
+
+
+select * from member;
+
+
+
+desc free;
+
+create view ckboard as (select f.no as no, f.title as title, f.content as content, f.hits as hits, f.resdate as resdate, m.id as id, m.name as name from free f, member m where f.id=m.id);
+
+
+

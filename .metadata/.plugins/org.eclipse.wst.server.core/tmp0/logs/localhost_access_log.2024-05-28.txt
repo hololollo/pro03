@@ -768,3 +768,13 @@
 0:0:0:0:0:0:0:1 - - [28/May/2024:17:50:47 +0900] "GET /company/member/join.do HTTP/1.1" 200 14444
 0:0:0:0:0:0:0:1 - - [28/May/2024:17:51:53 +0900] "GET /company/member/join.do HTTP/1.1" 200 14472
 0:0:0:0:0:0:0:1 - - [28/May/2024:17:51:55 +0900] "GET /company/member/join.do HTTP/1.1" 200 14472
+127.0.0.1 - - [28/May/2024:17:52:07 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:52:08 +0900] "GET /company/ HTTP/1.1" 200 5237
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:52:09 +0900] "GET /company/member/login.do HTTP/1.1" 200 6362
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:52:09 +0900] "GET /company/resources/css/login.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:52:11 +0900] "GET /company/member/agree.do HTTP/1.1" 200 101844
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:52:13 +0900] "GET /company/member/join.do HTTP/1.1" 200 14472
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:53:05 +0900] "GET /company/member/join.do HTTP/1.1" 200 14521
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:53:05 +0900] "GET /company/resources/image/footerlogo.jpg HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:53:06 +0900] "GET /company/member/join.do HTTP/1.1" 200 14521
+0:0:0:0:0:0:0:1 - - [28/May/2024:17:53:07 +0900] "GET /company/member/join.do HTTP/1.1" 200 14521

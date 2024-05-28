@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style>
-	.title { padding-top:36px; padding-bottom:20px; }
-    .agree_fr { width: 900px; white-space:pre-wrap; margin: 10px auto;
-            padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
+    .join_wrap{
+    	width :800px;
+    	margin : 10px auto;
+    	padding:10px;
+    }
     .table tr td, .table tr th { padding:14px; margin: 0 auto;}        
 	</style>
 </head>
@@ -22,9 +24,8 @@
 <header>
     <jsp:include page="../include/header.jsp" />
 </header>
-<main>
-    <div class="join_contents">
-        <div class="join_wrap">
+    <section class="join_contents">
+        <div class="container join_wrap">
             	<form name="frm1" id="frm1" action="${path2 }/member/joinPro.do" method="post" onsubmit="return joinCheck(this)">
                 	<table id="table1" class="table">
 	                    <tbody>
@@ -96,8 +97,7 @@
 	                </table>
 	            </form>
         </div>
-    </div>
-    </main>
+    </section>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
 	    function findAddr() {

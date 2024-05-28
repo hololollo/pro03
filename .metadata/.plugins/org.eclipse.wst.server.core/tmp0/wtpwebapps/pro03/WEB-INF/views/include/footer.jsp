@@ -3,7 +3,68 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="path1" value="${pageContext.request.contextPath}" />
+<c:set var="kpath" value="${pageContext.request.contextPath}" />
+<style>
+.back{
+	background-color:rgba(130, 143, 166, 1);
+}
+
+.foot {
+	width:100%;
+	margin:0 auto;
+}
+.foot p{
+	font-color:bisque;
+}
+
+.footer-menu{
+	width:100%;
+}
+.footer-menu span{
+	margin-top:10px;
+	padding-left:100px;
+}
+
+.foot .copyright{
+	width:75%;
+}
+.foot .copyright .footer_col {
+	padding-left:30px;
+}
+.foot .copyright .footer_col a{
+	color:#369;
+}
+
+</style>
+<section class="back">
+    <div class="foot">
+    	<p class="footer-menu">
+  			<span><a href="${kpath }/member/privacy.do">개인정보취급방침</a></span>
+  			<span><a href="${kpath }/member/term2.do">이용약관</a></span>
+  			<span><a href="${kpath }/member/traffic.do">찾아오시는 길</a></span>	
+    	</p>
+    </div>
+    <hr>
+       <div class="foot">
+            <p class="copyright">
+				<span class="footer_col">법인명 : (주)서울탁주제조협회</span> 
+				<span class="footer_col">대표자 : 강범준</span> 
+				<span class="footer_col">대표전화 : (02)3141-7611~6</span> 
+				<span class="footer_col">팩스 : (02)3141-7617</span>
+				<span class="footer_col">소비자상담실 : (02)3141-9453</span>								 
+				<span class="footer_col">본사주소 : 서울특별시 마포구 망원로 25 오일빌딩3층</span>
+				<span class="footer_col">개인정보관리책임자: <strong><a href="mailto:admin@makgeolli.com" title="관리자에게 메일 보내기">관리자(admin@makgeolli.com)</a></strong></span><br>
+				<span class="footer_col">Copryight 2024 (C) 서울탁주제조협회 . All Rights Reserved.</span>
+            </p>
+        </div>
+</section>
+
+
+
+
+
+
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,12 +92,14 @@
         .copyright p { color: #fff; padding-left: 270px; }
     </style>
 </head>
+ -->
+<!--  
 <body>        
     <footer>
         <hr>
         <div class="fc_wrap">
-            <a href=""><img src="${path1}/resources/image/footerlogo.jpg" alt="footer로고" class="logo"></a> <!-- 이미지 경로 수정 -->
-            <nav class="foot_menu">
+            <a href=""><img src="${kpath}/resources/image/footerlogo.jpg" alt="footer로고" class="logo"></a> <!-- 이미지 경로 수정 -->
+      <!--       <nav class="foot_menu">
                 <ul>
                     <li><a href="">회원약관</a></li>
                     <li><a href="">개인정보처리방침</a></li>
@@ -51,4 +114,4 @@
         </div>    
     </footer>
 </body>
-</html>
+</html>-->

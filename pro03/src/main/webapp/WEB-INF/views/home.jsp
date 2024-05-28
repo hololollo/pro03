@@ -8,13 +8,14 @@
 <html>
 <head>
 <title>Home</title>
-<link rel="stylesheet" href="./resources/css/bulma.css">
+<link rel="stylesheet" href="${kpath }/resources/css/bulma.css">
+<link rel="stylesheet" href="${kpath }/resources/css/common.css">
 <style>
 	html, body{
 		overflow-y: hidden;
 	}
 	main{
-		height:700px;
+		height:300px;
 		
 	}
 </style>

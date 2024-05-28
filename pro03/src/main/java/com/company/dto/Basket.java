@@ -8,12 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Basket {
-		private int bno;
-		private String id;
-		private int pno;
-		private int amount;
-		private String remark;
-		private Member member;
-		private Product product;
+	private int bno;
+	private int amount;
+	private String remark;
+	private Member member;
+	private String resdate;
+	private Product product;
 
 }

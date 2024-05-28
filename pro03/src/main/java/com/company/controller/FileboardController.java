@@ -23,4 +23,6 @@ public class FileboardController {
 		model.addAttribute("fileboardList", fileboardList);
 		return "fileboard/fileboardList";
 	}
+	
+	
 }

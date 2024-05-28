@@ -52,7 +52,7 @@
 		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
 	</filter>
 	<!-- 필터 기능 탑재 -->
-<!--  	<filter>
+  	<filter>
 		<filter-name>loginCheckFilter</filter-name>
 		<filter-class>com.company.filter.LoginCheckFilter</filter-class>
 	</filter>
@@ -67,5 +67,5 @@
 	<filter-mapping>
 		<filter-name>loginCheckFilter</filter-name>
 		<url-pattern>/board/*</url-pattern>
-	</filter-mapping>    -->
+	</filter-mapping>  
 </web-app>

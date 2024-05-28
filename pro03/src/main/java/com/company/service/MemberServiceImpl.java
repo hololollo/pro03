@@ -3,6 +3,7 @@ package com.company.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.company.dao.MemberDAO;
@@ -12,12 +13,18 @@ import com.company.dto.Member;
 public class MemberServiceImpl implements MemberService{
     @Autowired
     private MemberDAO memberDAO;
-
+    
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+    
 	@Override
 	public List<Member> getMemberList() {
 		return memberDAO.getMemberList();
 	}
-
+	@Override
+	public int memberCount() {
+		return memberDAO.memberCount();
+	}
 	@Override
 	public Member getMember(String id) {
 		return memberDAO.getMember(id);
@@ -25,12 +32,18 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public void insMember(Member member) {
+        // 비밀번호 해싱
+        String hashedPassword = passwordEncoder.encode(member.getPw());
+        member.setPw(hashedPassword);
+        // 회원 정보 저장
 		 memberDAO.insMember(member);
 	}
 
 	@Override
-	public void changePw(Member member) {
-        memberDAO.changePw(member);
+	public void changePw(String id, String pw) {
+        // 비밀번호 해싱
+        String hashedPassword = passwordEncoder.encode(pw);
+        memberDAO.changePw(id, hashedPassword);
 	}
 
 	@Override
@@ -52,5 +65,8 @@ public class MemberServiceImpl implements MemberService{
 	public boolean idCheck(String id) {
 		return memberDAO.idCheck(id);
 	}
-    
+    @Override
+    public boolean checkPassword(String rawPassword, String encodedPassword) {
+        return passwordEncoder.matches(rawPassword, encodedPassword);
+    }
 }

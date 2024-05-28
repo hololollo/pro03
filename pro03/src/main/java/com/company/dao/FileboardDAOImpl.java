@@ -25,8 +25,8 @@ public class FileboardDAOImpl implements FileboardDAO{
 	}
 
 	@Override
-	public Fileboard getFileboard(int bno) {
-		return sqlSession.selectOne("fileboard.getFileboard", bno);
+	public Fileboard getFileboard(int no) {
+		return sqlSession.selectOne("fileboard.getFileboard", no);
 	}
 
 	@Override
@@ -35,8 +35,8 @@ public class FileboardDAOImpl implements FileboardDAO{
 	}
 
 	@Override
-	public void delFileboard(int bno) {
-		sqlSession.delete("fileboard.delFileboard", bno);
+	public void delFileboard(int no) {
+		sqlSession.delete("fileboard.delFileboard", no);
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Product {
 	private int pno;
+	private String cate;
 	private String pname;
 	private String com;
 	private int price;

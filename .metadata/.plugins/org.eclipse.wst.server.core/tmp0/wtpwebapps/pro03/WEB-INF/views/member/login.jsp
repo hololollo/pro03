@@ -10,36 +10,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="${kpath }/resources/css/login.css">
     <style>
-        * { margin: 0; padding: 0; }
-        body { width:100%; height: auto; }
-        .headerimg { width: 1930px; height: 600px; background-image: url(${kpath}/resources/img/login.png); margin: 0px auto; background-size: cover; background-position: center; background-repeat: no-repeat; }
-        .login_contents { width: 1290px; height: 600px; margin: 0 auto; }
-        .login_wrap { width: 650px; height: 400px; margin: 75px auto; border: 1px solid gray; border-radius: 5px; text-align: center; }
-        .login_wrap h1 { margin-top: 2rem; }
-        input[type=text] { width: 400px; height: 40px; margin-top: 25px; border: 1px solid gray; border-radius: 3px; padding-left: 1rem; }
-        input[type=password] { width: 400px; height: 40px; margin-top: 25px; border: 1px solid gray; border-radius: 3px; padding-left: 1rem; }
-        input[type=submit] { width: 417px; height: 40px; margin-top: 25px; font-weight: bold; font-size: 20px; }
+    	.section{
+    		height:700px;
+    		overflow-y:hidden;
+    	}
     </style>
 </head>
 <body>
-    <div class="headerimg"></div>
-    <div class="login_contents">
-        <div class="login_wrap">
+<header>
+    <jsp:include page="../include/header.jsp" />
+</header>
+<section class="section">
+    <div class="container">
+        <div class="login-form-wrap">
             <h1>Log-in</h1>
-             <c:if test="${not empty msg}">
+            <c:if test="${not empty msg}">
                 <div class="message">${msg}</div>
             </c:if>
-            <form action="${path}/member/loginPro.do" method="post">
-                <input type="text" id="id" name="id" class="loginId" placeholder="아이디" required>
-                <input type="password" id="pw" name="pw" class="loginId" placeholder="비밀번호" required>
-                <input type="submit" id="login" name="login" class="button" value="로그인">
+            <form class="login-form" method="post" action="${kpath}/member/loginPro.do">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" id="id" name="id" required placeholder="ID">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="password" id="pw" name="pw" required placeholder="PW">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="button is-primary" type="submit" value="Login">
+                    </div>
+                </div>
             </form>
-            <br>
-            <a href="#">아이디찾기 ㅣ</a>
-            <a href="#">비밀번호찾기 ㅣ</a>
-            <a href="${path}/member/join.do">회원가입</a>
+            <h5><a href="${kpath}/member/agree.do"> | 회원가입 | </a></h5>
         </div>
     </div>
+</section>
+<footer>
+    <jsp:include page="../include/footer.jsp" />
+</footer>
 </body>
 </html>

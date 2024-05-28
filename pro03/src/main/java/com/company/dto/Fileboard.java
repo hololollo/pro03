@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Fileboard {
-	private int fno;
+	private int no;
 	private String title;
 	private String content;
 	private String url;
 	private int hits;
-	private int resdate;
+	private String resdate;
 	private String author;
 }

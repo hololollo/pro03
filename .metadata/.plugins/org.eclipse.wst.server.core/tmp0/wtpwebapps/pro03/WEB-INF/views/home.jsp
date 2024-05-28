@@ -9,13 +9,21 @@
 <head>
 <title>Home</title>
 <link rel="stylesheet" href="./resources/css/bulma.css">
-
+<style>
+	html, body{
+		overflow-y: hidden;
+	}
+	main{
+		height:700px;
+		
+	}
+</style>
 </head>
 <body>
 <header>
-<%@include file="../include/header.jsp" %>
+	<jsp:include page="./include/header.jsp"></jsp:include>
 </header>
-<main></main>
+<main>
 <h1>
 	Hello world!  
 </h1>
@@ -24,9 +32,12 @@
 <hr>
 	<a href="${kpath }/sample/list.do">샘플 목록</a>	
 <hr>
-	<a href="${kpath }/member/login.do">로그인</a>
-<hr>
 	<a href="${kpath }/board/boardList.do">게시판 목록</a>
-<footer></footer>	
+<hr>
+	<a href="${kpath }/fileupload/main">파일 업로드 실습</a>
+</main>
+<footer>
+	<jsp:include page="./include/footer.jsp"></jsp:include>
+</footer>	
 </body>
 </html>

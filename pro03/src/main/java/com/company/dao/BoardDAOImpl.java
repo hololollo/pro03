@@ -10,14 +10,12 @@ import com.company.dto.Board;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO{
-	
+
 	@Autowired
 	private SqlSession sqlSession;
 	
-	
-
 	@Override
-	public Board getTotalCount() {
+	public int getTotalCount() {
 		return sqlSession.selectOne("board.getTotalCount");
 	}
 
@@ -32,14 +30,8 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public int maxNum() {
-		return sqlSession.selectOne("board.maxNum");
-	}
-
-	@Override
 	public void insBoard(Board board) {
 		sqlSession.insert("board.insBoard", board);
-		
 	}
 
 	@Override
@@ -48,9 +40,13 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public void delBoard(int bno) {
-		sqlSession.update("board.delBoard", bno);
+	public void vcntCount(int bno) {
+		sqlSession.update("board.vcntCount", bno);
 	}
-	
+
+	@Override
+	public void delBoard(int bno) {
+		sqlSession.delete("board.delBoard", bno);
+	}
 	
 }

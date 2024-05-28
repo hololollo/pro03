@@ -23,6 +23,11 @@ public class MemberDAOImpl implements MemberDAO {
 	public Member getMember(String id) {
 		return sqlSession.selectOne("member.getMember", id);
 	}
+	
+	@Override
+	public int memberCount() {
+		return sqlSession.selectOne("member.memberCount");
+	}
 
 	@Override
 	public void insMember(Member member) {
@@ -30,8 +35,12 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public void changePw(Member member) {
-        sqlSession.update("member.changePw", member);
+	public void changePw(String id, String pw) {
+        // 비밀번호 업데이트를 위해 Member 객체 생성 및 설정
+        Member member = new Member();
+        member.setId(id);
+        member.setPw(pw);
+        sqlSession.update("member.upPw", member);
 	}
 	
 	

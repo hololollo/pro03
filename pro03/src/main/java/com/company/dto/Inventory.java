@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Inventory {
 	private int ino;
-	private int pno;
 	private int iprice;
 	private int oprice;
 	private int amount;
 	private String remark;
+	private String resdate;
 	private Product product;
 }

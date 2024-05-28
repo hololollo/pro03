@@ -3,7 +3,6 @@ package com.company.dao;
 import java.util.List;
 
 import com.company.dto.Basket;
-import com.company.dto.Inventory;
 
 public interface BasketDAO {
 	public Basket getTotalCount(int bno);

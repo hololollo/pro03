@@ -33,7 +33,9 @@
 	<resources mapping="/basket/**" location="/WEB-INF/views/basket" />
 	<resources mapping="/product/**" location="/WEB-INF/views/product" />
 	<resources mapping="/sales/**" location="/WEB-INF/views/sales" />
-
+	<resources mapping="/css/**" location="/WEB-INF/views/css" />
+	<resources mapping="/scss/**" location="/WEB-INF/views/scss" />
+	<resources mapping="/fileupload/**" location="/WEB-INF/views/fileupload" />
 	<!-- 리졸버에 대한 접두사와 접미사 설정 -->
 	<!-- @Controller가 렌더링하기 위해 선택한 뷰를 /WEB-INF/views 디렉터리의 .jsp 리소스로 확인합니다. -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -50,17 +52,28 @@
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg value="D:\kang\pro03\company\src\main\webapp\resources\upload"></beans:constructor-arg>
 	</beans:bean>
+	<!-- Spring Validator 지정 -->
+	<annotation-driven validator="validator"/>
+	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 		
 	<!-- 기본 메인 패키지 및 컨트롤러 패키지 설정 -->
 	<context:component-scan base-package="com.company" />
 	
+		
+	<!-- BCryptPasswordEncoder 빈 설정 -->
+    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+	
+	
 	<!-- 스프링 시큐리티 인터셉터 설정 -->
-<!-- 	<beans:bean id="adminInterceptor" class="com.company.filter.AdminInterceptor" />
-	<interceptors>
+ 	<beans:bean id="adminInterceptor" class="com.company.filter.AdminInterceptor" />
+<!--  	<interceptors>
 		<interceptor>
 			<mapping path="/admin/**" />
 			<brans:ref bean="adminInterceptor" />
 		</interceptor>
 	</interceptors>
- -->
+-->
+
+	
 </beans:beans>

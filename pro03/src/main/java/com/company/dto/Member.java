@@ -15,7 +15,6 @@ public class Member {
     private String name;
     private String email;
     private String tel;
-    private String birth;
     private String postcode;
     private String addr;
 }

@@ -25,13 +25,30 @@
        About company
       </a>
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">제품정보</a>
-		  <div class="navbar-dropdown">
-            <a class="navbar-item">장수막걸리</a>
-            <a class="navbar-item">장수생막걸리</a>
-          	<hr class="navbar-divider">
-          <a class="navbar-item">오시는 길</a>
-        </div>
+        <a class="navbar-link" href="${kpath }/product/productListAll.do">제품정보</a>
+                    <div class="navbar-dropdown">
+                        <a href="${kpath }/product/productList.do?cate=seng" class="navbar-item" title="장수막걸리">
+                            장수막걸리
+                        </a>
+                        <a href="${kpath }/product/productList.do?cate=korea" class="navbar-item" title="국내산 장수 생막걸리">
+                            국내산 장수생막걸리
+                        </a>
+                        <a href="${kpath }/product/productList.do?cate=life" class="navbar-item" title="인생막걸리">
+                            인생막걸리
+                        </a>
+                        <hr class="navbar-divider">
+                        <a href="${kpath }/product/productList.do?cate=rice" class="navbar-item" title="월매쌀막걸리">
+                            월매쌀막걸리
+                        </a>
+                        <hr class="navbar-divider">
+                        <a href="${kpath }/product/productList.do?cate=moon" class="navbar-item" title="달빛유자">
+                            달빛유자
+                        </a>       
+                        <hr class="navbar-divider">
+                        <a href="${kpath }/product/productList.do?cate=ginseng" class="navbar-item" title="장홍삼 장수막걸리">
+                            장홍삼 장수막걸리
+                        </a>                  
+                    </div>
       </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">고객센터</a>

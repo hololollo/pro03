@@ -5,31 +5,49 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.company.dao.ProductDAO;
 import com.company.dto.Product;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 	@Autowired
-	private ProductService productService;
+	private ProductDAO productDAO;
+
+	
+	@Override
+	public Product getTotalCount() {
+		return productDAO.getTotalCount();
+	}
 
 	@Override
 	public List<Product> getProductList() {
-		return productService.getProductList();
+		return productDAO.getProductList();
+	}
+
+	@Override
+	public List<Product> getProductCateList(String cate) {
+		return productDAO.getProductCateList(cate);
 	}
 
 	@Override
 	public Product getProduct(int pno) {
-		return productService.getProduct(pno);
+		return productDAO.getProduct(pno);
 	}
 
 	@Override
 	public void insProduct(Product product) {
-		productService.insProduct(product);
+		productDAO.insProduct(product);
+	}
+
+	@Override
+	public void upProduct(Product product) {
+		productDAO.upProduct(product);
+		
 	}
 
 	@Override
 	public void delProduct(int pno) {
-		productService.delProduct(pno);
+		productDAO.delProduct(pno);
 	}
 	
 }

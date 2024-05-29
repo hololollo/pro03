@@ -1,5 +1,0 @@
-package com.company.vo;
-
-public class MultiUploadVO {
-	private List<UploadVO> list;
-}

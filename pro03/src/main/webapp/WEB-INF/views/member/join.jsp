@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<c:set var="path" value="${pageContext.request.contextPath}" />
+<c:set var="kpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -17,7 +17,10 @@
     	margin : 10px auto;
     	padding:10px;
     }
-    .table tr td, .table tr th { padding:14px; margin: 0 auto;}        
+    .table tr th {
+    	width:200px;
+    }
+    .table tr td { padding:14px; margin: 0 auto;}        
 	</style>
 </head>
 <body>
@@ -26,7 +29,7 @@
 </header>
     <section class="join_contents">
         <div class="container join_wrap">
-            	<form name="frm1" id="frm1" action="${path2 }/member/joinPro.do" method="post" onsubmit="return joinCheck(this)">
+            	<form name="frm1" id="frm1" action="${kpath }/member/joinPro.do" method="post" onsubmit="return joinCheck(this)">
                 	<table id="table1" class="table">
 	                    <tbody>
 	                    <tr>
@@ -184,9 +187,9 @@
                 $("#id").focus();
                 return false;
             }
-            if ($("#pw").val() != $("#usercfpw").val()) {
+            if ($("#pw").val() != $("#pw2").val()) {
                 alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
-                $("#usercfpw").focus();
+                $("#pw").focus();
                 return false;
             }
             if (!passwordPattern.test($("#pw").val())) {

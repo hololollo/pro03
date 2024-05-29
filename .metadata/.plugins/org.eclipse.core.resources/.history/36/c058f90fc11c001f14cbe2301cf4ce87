@@ -1,6 +1,0 @@
-package com.company.vo;
-
-public class UploadVO {
-	private String name;
-	private MultipartFile file;
-}

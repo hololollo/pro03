@@ -25,6 +25,11 @@ public List<Product> getProductList() {
 }
 
 @Override
+public List<Product> getProductCateList(String cate) {
+	return sqlSession.selectList("product.getProductCateList", cate);
+}
+
+@Override
 public Product getProduct(int pno) {
 	return sqlSession.selectOne("product.getProduct", pno);
 }
@@ -32,6 +37,12 @@ public Product getProduct(int pno) {
 @Override
 public void insProduct(Product product) {
 	sqlSession.insert("product.insProduct", product);
+}
+
+@Override
+public void upProduct(Product product) {
+	sqlSession.update("product.upProduct", product);
+	
 }
 
 @Override

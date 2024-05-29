@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8";
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
@@ -72,7 +72,7 @@
 				});
 				</script>
 				<hr>
-				<c:if test="${mem.id.equals('admin') }">
+				<c:if test="${sid.id.equals('admin') }">
 				<div class="btn-group">
 				  <a href="${kpath }/board/insBoard.do" class="btn btn-secondary">글 등록</a>
 				</div>

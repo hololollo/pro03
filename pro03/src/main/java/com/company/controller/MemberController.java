@@ -83,9 +83,9 @@ public class MemberController {
 
         member.setName(request.getParameter("name"));
 
-        //member.setEmail(request.getParameter("email"));
-        //String email = request.getParameter("useremail1") + "@" + request.getParameter("useremail2");
+        member.setEmail(request.getParameter("email"));
         //member.setEmail(email);
+        	/*
      		String emailbox = request.getParameter("emailbox");
      		String useremail1 = request.getParameter("useremail1");
      		String useremail2 = request.getParameter("useremail2"); 
@@ -100,20 +100,22 @@ public class MemberController {
      		    email = request.getParameter("useremail1") + "@" + emailbox;
      		}
      		member.setEmail(email);
+     		*/
 
-	        String tel = request.getParameter("usertel1") + "-" + request.getParameter("usertel2") + "-" + request.getParameter("usertel3");
-	        member.setTel(tel);
 	        
+	        member.setTel(request.getParameter("tel"));
+	        
+	        /*
 	        String birth = request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day");
 	        member.setBirth(birth);
-	        
+	        */
 	        member.setPostcode(request.getParameter("postcode"));
 	//        member.setAddr(request.getParameter("addr"));
-	        String addr = request.getParameter("roadaddr1") + " " + request.getParameter("roadaddr2");
+	        String addr = request.getParameter("addr1") + " " + request.getParameter("addr2");
 	        member.setAddr(addr);
-	
+	        
 	        memberService.insMember(member);
-	
+	        
 	        rttr.addFlashAttribute("msg", "회원가입이 완료되었습니다. 다시 로그인 해주세요.");
 	        return "redirect:/member/login.do";
     	}

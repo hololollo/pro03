@@ -36,6 +36,18 @@
 	<logger name="com.company.service">
 		<level value="info" />
 	</logger>
+
+	<logger name="com.company.util">
+		<level value="info" />
+	</logger>
+	
+	<logger name="com.company.vo">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.company.filter">
+		<level value="info" />
+	</logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">

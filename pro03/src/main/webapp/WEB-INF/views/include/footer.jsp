@@ -25,13 +25,17 @@
 	padding-left:100px;
 }
 
-.foot .copyright{
+.foot1{
+	margin-left: 20%;
+}
+
+.foot1 .copyright{
 	width:75%;
 }
-.foot .copyright .footer_col {
+.foot1 .copyright .footer_col {
 	padding-left:30px;
 }
-.foot .copyright .footer_col a{
+.foot1 .copyright .footer_col a{
 	color:#369;
 }
 
@@ -45,7 +49,7 @@
     	</p>
     </div>
     <hr>
-       <div class="foot">
+       <div class="foot1">
             <p class="copyright">
 				<span class="footer_col">법인명 : (주)서울탁주제조협회</span> 
 				<span class="footer_col">대표자 : 강범준</span> 

@@ -25,7 +25,7 @@
        About company
       </a>
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="${kpath }/product/productListAll.do">제품정보</a>
+        <a class="navbar-link" href="${kpath }/product/productList.do">제품정보</a>
                     <div class="navbar-dropdown">
                         <a href="${kpath }/product/productList.do?cate=seng" class="navbar-item" title="장수막걸리">
                             장수막걸리
@@ -53,7 +53,7 @@
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">고객센터</a>
 		  <div class="navbar-dropdown">
-            <a class="navbar-item is-selected">공지사항</a>
+            <a class="navbar-item" href="${kpath }/board/boardList.do">공지사항</a>
             <a class="navbar-item">고객의소리</a>
           	<hr class="navbar-divider">
           <a class="navbar-item">오시는 길</a>

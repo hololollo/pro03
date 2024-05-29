@@ -61,7 +61,6 @@ desc product;
 
 
 select * from product;
-
 create table product(pno int auto_increment primary key,
 cate varchar(20) not null, pname varchar(100) not null, 
 com varchar(1000), price int default 1000, 

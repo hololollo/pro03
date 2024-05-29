@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8";
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
@@ -9,23 +9,83 @@
 	<meta charset="UTF-8">
     <title>게시판 목록</title>
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="resources/css/normalize.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-prototype.min.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.2.3/motion-ui.min.js"></script>
 <style>
-	#header { height:100px;}
+	/* 본문 내용 스타일 */
+.contents {
+    padding: 20px;
+}
+
+/* 페이지 타이틀 스타일 */
+.page_title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 테이블 스타일 */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* 테이블 헤더 스타일 */
+.table th {
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+/* 테이블 내용 스타일 */
+.table td {
+    text-align: center;
+}
+
+/* 버튼 스타일 */
+.buttons {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.buttons .button {
+    margin-right: 10px;
+}
+
+/* 푸터 스타일 */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
 </style>
 </head>
 <body>
-<header id="header">
-	
+<header>
+    <jsp:include page="../include/header.jsp" />
 </header>
-<main id="contents">
+    <main id="contents" class="contents">
+    	<div id="breadcrumb" class="container breadcrumb-wrap clr-fix">
+	    	<nav class="breadcrumb" aria-label="breadcrumbs">
+			  <ul>
+			    <li><a href="${kpath }">Home</a></li>
+			    <li><a href="${kpath }/product/productList.do">상품</a></li>
+			    <li class="is-active"><a href="#" aria-current="page">목록</a></li>
+			  </ul>
+			</nav>
+    	</div>
 	<section class="page" id="page1">
 		<div style="width:1400px; margin:0 auto;">
 			<h3 class="page_title">게시판 목록</h3>
@@ -63,7 +123,8 @@
 						</c:if>
 					</tbody>
 				</table>
-				<a href="${kpath }">메인으로</a>
+				<div class="buttons">
+				<a href="${kpath }" class="button is-link">메인으로</a>
 				<script>
 				$(document).ready(function(){
 					$("#tb1").DataTable({
@@ -72,17 +133,16 @@
 				});
 				</script>
 				<hr>
-				<c:if test="${sid.id.equals('admin') }">
-				<div class="btn-group">
-				  <a href="${kpath }/board/insBoard.do" class="btn btn-secondary">글 등록</a>
-				</div>
+				<c:if test="${sid.equals('admin') }">
+				  <a href="${kpath }/board/insBoard.do" class="button is-success">글 등록</a>
 				</c:if>
+				</div>
 			</div>
 		</div>
 	</section>
 </main>
-<footer id="footer" class="footer-nav row expanded collapse">
-
+<footer>
+	  <jsp:include page="../include/footer.jsp" />
 </footer>
 </body>
 </html>

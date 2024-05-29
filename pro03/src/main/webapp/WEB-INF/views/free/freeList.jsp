@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>공지사항 상세보기</title>
+	<title>자유게시판 목록</title>
 	<script src="https://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
@@ -22,56 +22,69 @@
 <body>
 <div class="full-wrap">
     <!-- 헤더 부분 인클루드 -->
-    <header>
-    		<jsp:include page="../include/header.jsp"/>
-    </header>
+<header>
+    <jsp:include page="../include/header.jsp" />
+</header>
     <main id="contents" class="contents">
-       	<div id="breadcrumb" class="container breadcrumb-wrap clr-fix" style="height:60px; line-height:60px;">
+    	<div id="breadcrumb" class="container breadcrumb-wrap clr-fix" style="height:60px; line-height:60px;">
 	    	<nav class="breadcrumb" aria-label="breadcrumbs">
 			  <ul>
 			    <li><a href="${kpath }">Home</a></li>
-			    <li><a href="${kpath }/board/boardList.do">목록</a></li>
-			    <li class="is-active"><a href="#" aria-current="page">상세보기</a></li>
+			    <li class="is-active"><a href="#" aria-current="page">List</a></li>
 			  </ul>
 			</nav>
     	</div>
  	    <section class="page" id="page1">
-    		<h2 class="page-title">공지사항 글 상세보기</h2>
+    		<h2 class="page-title">자유게시판 목록</h2>
     		<div class="page-wrap">
- 				<div class="clr-fix">
-					<table id="tb1" class="table" width="1200">
+	    		<div class="clr-fix">
+	    			<br>
+					<table class="table" id="tb1">
+						<thead>
+							<tr>
+								<th class="item1">번호</th>
+								<th class="item2">제목</th>
+								<th class="item3">작성일</th>
+								<th class="item4">조회수</th>
+							</tr>
+						</thead>
 						<tbody>
-							<tr>
-								<th>글 번호</th>
-								<td>${board.bno }</td>
-							</tr>
-							<tr>
-								<th>글 제목</th>
-								<td>${board.title }</td>
-							</tr>
-							<tr>
-								<th>글 내용</th>
-								<td>${board.content }</td>
-							</tr>
-							<tr>
-								<th>작성일시</th>		
-								<td>${board.resdate }</td>
-							</tr>
-							<tr>
-								<th>조회수</th>
-								<td>${board.vcnt }</td>
-							</tr>
+							<c:if test="${not empty freeList }">
+								<c:forEach var="dto" items="${freeList }">
+								<tr>
+									<td>${dto.no }</td>
+									<td>
+	 									<c:if test="${empty sid }">
+										<strong>${dto.title }</strong>
+										</c:if>
+										<c:if test="${not empty sid }">
+										<a href="${kpath }/free/getFree.do?no=${dto.no }">${dto.title }</a>
+										</c:if>   
+									</td>
+									<td>${dto.resdate }</td><td>${dto.hits }</td>
+								</tr>
+								</c:forEach>
+							</c:if>
+							<c:if test="${empty freeList }">
+								<tr>
+									<td colspan="4"><strong>자유게시판 글이 존재하지 않습니다.</strong></td>
+								</tr>
+							</c:if>
 						</tbody>
 					</table>
+					<script>
+					$(document).ready(function(){
+						$("#tb1").DataTable({
+							order:[[0,"desc"]]
+						});
+					});
+					</script>
 					<hr>
+					<c:if test="${not empty sid }">
 					<div class="buttons">
-					  <c:if test="${cus.equals('admin') }">
-					  <a href="${kpath }/board/insBoard.do" class="button is-success">글 등록</a>
-					  <a href="${kpath }/board/update.do?bno=${board.bno }" class="button is-warning">글 수정</a>
-					  <a href="${kpath }/board/delBoard.do?bno=${board.bno }" class="button is-danger is-danger">글 삭제</a>
-					  </c:if>
-					  <a href="${kpath }/board/boardList.do" class="button is-link">글 목록</a>
+					  <a href="${kpath }/free/insFree.do" class="button is-success">글 등록</a>
 					</div>
+					</c:if>
 				</div>
     		</div>
     	</section>

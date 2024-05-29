@@ -14,7 +14,7 @@ public class FreeDAOImpl implements FreeDAO{
 	private SqlSession sqlSession;
 
 	@Override
-	public Free getTotalCount() {
+	public int getTotalCount() {
 		return sqlSession.selectOne("free.getTotalCount");
 	}
 
@@ -36,6 +36,12 @@ public class FreeDAOImpl implements FreeDAO{
 	@Override
 	public void upFree(Free free) {
 		sqlSession.update("free.upFree", free);
+	}
+	
+	@Override
+	public void hitCount(int no) {
+		sqlSession.update("free.hitCount", no);
+
 	}
 
 	@Override

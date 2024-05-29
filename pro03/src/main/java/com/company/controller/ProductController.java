@@ -105,7 +105,7 @@ public class ProductController {
 		product.setImg3(img3Name);
 		
 		productService.insProduct(product);
-		return "redirect:/product/productListAll.do";
+		return "redirect:/product/productList.do";
 	}
 	public String saveFile(MultipartFile file, String uploadDir) throws IOException {
 		String originalFilename = file.getOriginalFilename();

@@ -11,7 +11,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>상품정보 상세보기</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-	<jsp:include page="../include/head.jsp"></jsp:include>
+<style>
+	/* 새로운 CSS 추가 */
+.full-wrap {
+    padding-bottom: 20px; /* 페이지 하단 여백 추가 */
+}
+
+#breadcrumb {
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin-bottom: 20px; /* breadcrumb와 페이지 콘텐츠 간격 조정 */
+}
+
+.page-title {
+    margin-bottom: 20px;
+}
+
+.page-wrap {
+    margin-bottom: 40px; /* 페이지 하단에 여백 추가 */
+}
+
+.page-title{
+	width:auto;
+	text-align:center;
+}
+/* 테이블 스타일 수정 */
+.table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* 이미지 스타일 수정 */
+.table img {
+	display:block;
+    width: 50%;
+    height: 400px;
+    border-radius: 5px;
+    margin:10px auto;
+}
+
+/* 버튼 스타일 수정 */
+.buttons {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.buttons .button {
+    margin-right: 10px; /* 버튼 사이 간격 조정 */
+}
+
+/* 모바일 및 작은 화면에 대한 조정 */
+@media only screen and (max-width: 768px) {
+    .page-title {
+        font-size: 24px; /* 제목 글꼴 크기 조정 */
+    }
+
+    .buttons .button {
+        margin-bottom: 10px; /* 버튼 위 아래 간격 조정 */
+    }
+}
+</style>
 </head>
 <body>
 <div class="full-wrap">
@@ -33,7 +99,7 @@
     		<h2 class="page-title">상품정보 상세보기</h2>
     		<div class="page-wrap">
  				<div class="clr-fix">
-					<table id="tb1" class="table" width="1200">
+					<table id="tb1" class="table">
 						<tbody>
 							<tr>
 								<td colspan="2"><img src="${kpath}/resources/upload/${product.img}" alt="${product.img }" /></td>
@@ -100,7 +166,7 @@
     </footer>
     <script>
     $(document).ready(function(){
-    	$("#tb1_length, #tb1_filter").css("margin-bottom", "20px");
+    	$("#tb1").css("margin-bottom", "20px");
     });
     </script>
 </div>    

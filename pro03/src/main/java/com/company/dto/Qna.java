@@ -15,5 +15,6 @@ public class Qna {
 	private int parno;
 	private int hits;
 	private String resdate;
-	private Member member;
+	private String id;
+	private String name;
 }

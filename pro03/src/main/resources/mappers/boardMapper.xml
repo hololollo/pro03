@@ -14,6 +14,11 @@
 		select * from board order by resdate desc
 	</select>
 	
+	<!--  카테고리별 목록 -->
+	<select id="getBoardCateList" parameterType="String" resultType="com.company.dto.Board">
+		select * from board where cate=#{cate} order by bno desc 
+	</select>
+	
 	<!-- 공지사항 상세 보기 -->	
 	<select id="getBoard" parameterType="int" resultType="com.company.dto.Board">
 		select * from board where bno=#{bno}

@@ -1,0 +1,9 @@
+package com.company.dto;
+
+public class IamPortClient {
+	private final static String CODE ="";
+	private final static String KEY ="";
+	private final static String SECRET ="";
+}
+
+//salesController에 주입

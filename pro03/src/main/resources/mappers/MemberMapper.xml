@@ -5,13 +5,18 @@
 <mapper namespace="member">
 
 	<select id="getMemberList" resultType="com.company.dto.Member">
-        select id, pw, name, email, tel, postcode, addr from member </select>
+       select * from member order by resdate desc </select>
 
  	<select id="getMember" parameterType="String" resultType="com.company.dto.Member">
-        SELECT id, pw, name, email, tel, postcode, addr FROM member WHERE id = #{id} </select>
+        SELECT * FROM member WHERE id = #{id} </select>
+   	
+   	<select id="memberCount" resultType="int">
+		select count(*) from member
+	</select>
     
     <insert id="insMember" parameterType="com.company.dto.Member">
-        INSERT INTO member (id, pw, name, email, tel, postcode, addr) VALUES (#{id}, #{pw}, #{name}, #{email}, #{tel}, #{postcode}, #{addr}) </insert>
+       		insert into member values (#{id}, #{pw}, #{name}, #{email}, #{tel}, 
+			#{addr1}, #{addr2}, #{postcode}, #{birth}, default) </insert>
     
     <update id="changePw" parameterType="com.company.dto.Member">
         UPDATE member SET pw = #{pw} WHERE id = #{id} </update>    

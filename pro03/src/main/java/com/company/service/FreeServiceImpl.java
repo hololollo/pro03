@@ -14,7 +14,7 @@ public class FreeServiceImpl implements FreeService {
 	private FreeDAO freeDAO;
 
 	@Override
-	public Free getTotalCount() {
+	public int getTotalCount() {
 		return freeDAO.getTotalCount();
 	}
 
@@ -36,6 +36,12 @@ public class FreeServiceImpl implements FreeService {
 	@Override
 	public void upFree(Free free) {
 		freeDAO.upFree(free);
+	}
+
+	@Override
+	public void hitCount(int no) {
+		freeDAO.hitCount(no);
+
 	}
 
 	@Override

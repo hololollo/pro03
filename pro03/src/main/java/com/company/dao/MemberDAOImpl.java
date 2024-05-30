@@ -3,6 +3,8 @@ package com.company.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +12,8 @@ import com.company.dto.Member;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
+	
+	private static final Logger log = LoggerFactory.getLogger(MemberDAO.class);
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -20,7 +24,8 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public Member getMember(String id) {
+	public Member getMember(String id) throws IllegalArgumentException{
+		log.info("Fetching member with id: {}", id);
 		return sqlSession.selectOne("member.getMember", id);
 	}
 	
@@ -42,7 +47,6 @@ public class MemberDAOImpl implements MemberDAO {
         member.setPw(pw);
         sqlSession.update("member.upPw", member);
 	}
-	
 	
 	@Override
 	public void changeInfo(Member member) {

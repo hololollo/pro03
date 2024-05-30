@@ -2,7 +2,8 @@ create database company;
 
 use company;
 
-show tables;
+-- board, member, free, fileboard, qna, product, inventory,
+-- sales, basket
 
 create table board(bno int auto_increment primary key, 
 title varchar(200), content varchar(1000), 
@@ -21,19 +22,13 @@ commit;
 select * from board;
 
 show tables;
-desc member;
-select * from member;
 
-CREATE TABLE member (
-id  VARCHAR(50) PRIMARY KEY,
-pw VARCHAR(100) NOT NULL,
-name VARCHAR(100),
-email VARCHAR(100),
-tel VARCHAR(100),
-postcode VARCHAR(20),
-addr VARCHAR(255)
-);
-
+create table member(id varchar(20) primary key,
+pw varchar(300) not null, name varchar(100) not null,
+email varchar(200) not null, tel varchar(100) not null,
+addr1 varchar(200), addr2 varchar(100), postcode varchar(20),
+birth date, 
+regdate timestamp default current_timestamp);
 
 create table free(no int auto_increment primary key,
 title varchar(200), content varchar(1000),
@@ -57,10 +52,6 @@ title varchar(200), content varchar(1000), url varchar(300),
 hits int default 0, resdate timestamp default current_timestamp,
 author varchar(20));
 
-desc product;
-
-
-select * from product;
 create table product(pno int auto_increment primary key,
 cate varchar(20) not null, pname varchar(100) not null, 
 com varchar(1000), price int default 1000, 

@@ -1,0 +1,82 @@
+package com.company.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.company.dao.SalesDAO;
+import com.company.dto.Sales;
+
+@Service
+public class SalesServiceImpl implements SalesService {
+	@Autowired
+	private SalesDAO salesDAO;
+
+	@Override
+	public int getTotalCount() {
+		return salesDAO.getTotalCount();
+	}
+
+	@Override
+	public List<Sales> getAdminSalesList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Sales> getAdminStSalesList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Sales> getDelstSalesList(String delStatus) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Sales> getPnoSalesList(int pno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Sales> getSalesList(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Sales getSales(int sno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void upSales(Sales sales) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void upDelivery(Sales sales) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void completeDelivery(Sales sales) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delSales(int sno) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

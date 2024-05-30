@@ -23,7 +23,7 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<Board> getBoardList() {
 		return sqlSession.selectList("board.getBoardList");
 	}
-
+	
 	@Override
 	public Board getBoard(int bno) {
 		return sqlSession.selectOne("board.getBoard", bno);

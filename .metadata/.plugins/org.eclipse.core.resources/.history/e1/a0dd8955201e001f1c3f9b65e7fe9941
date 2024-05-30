@@ -1,0 +1,39 @@
+package com.company.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/admin/")
+public class AdminController {
+private static final Logger log = LoggerFactory.getLogger(AdminController.class);
+	
+	@Autowired
+	private FileboardService fileboardService;
+	
+	@Autowired
+	private ServletContext servletContext;
+
+	@Autowired
+	private HttpSession session;
+		
+	@Autowired
+	private BoardService boardService;
+		
+	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
+	private BCryptPasswordEncoder pwdEncoder;
+	
+	@Autowired
+	private ProductService productService;
+	
+	@Autowired
+	private InventoryService inventoryService;
+	
+	@Autowired
+	private SalesService salesService;
+	
+	String uploadLoc = "/resources/upload/";
+}

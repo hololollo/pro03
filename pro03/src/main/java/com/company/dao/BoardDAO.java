@@ -3,6 +3,7 @@ package com.company.dao;
 import java.util.List;
 
 import com.company.dto.Board;
+import com.company.dto.Product;
 
 public interface BoardDAO {
 	public int getTotalCount();

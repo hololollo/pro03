@@ -10,11 +10,12 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.company.dto.Member;
 
 public class AdminInterceptor extends HandlerInterceptorAdapter {
+	
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        Member member = (Member) session.getAttribute("member");
-        if(session.getAttribute("memer")==null) { //로그인을 하지 않은 경우
+        Member member = (Member) session.getAttribute("sid");
+        if(session.getAttribute("sid")==null) { //로그인을 하지 않은 경우
             response.sendRedirect(request.getContextPath()+"/member/login.do");
             return false;
         }

@@ -115,15 +115,15 @@ public class ProductController {
 		return newFilename;
 	}
 		
-    @GetMapping("editProduct.do")
-    public String editProduct(@RequestParam("pno") int pno, Model model) {
+    @GetMapping("upProduct.do")
+    public String upProduct(@RequestParam("pno") int pno, Model model) {
     	Product product = productService.getProduct(pno);
     	model.addAttribute("product", productService.getProduct(pno));
         return "product/editProduct";
     }
 	
-	@PostMapping("editProductPro.do")
-	public String editProductPro(@RequestParam("pno") int pno,
+	@PostMapping("upProductPro.do")
+	public String upProductPro(@RequestParam("pno") int pno,
 			@RequestParam("cate") String cate,
 			@RequestParam("pname") String pname,
 			@RequestParam("com") String com,

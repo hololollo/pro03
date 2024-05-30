@@ -1,0 +1,15 @@
+package com.company.vo;
+
+public class ProductVO {
+	private int pno;
+	private String cate;
+	private String pname;
+	private String com;
+	private String img;
+	private String img2;
+	private String img3;
+	private int iprice;
+	private int oprice;
+	private int amount;
+	private int price;
+}

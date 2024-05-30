@@ -31,7 +31,7 @@
 	</insert>
 	
 	<!-- 상품 변경 -->
-	<update id="editProduct" parameterType="com.company.dto.Product">
+	<update id="upProduct" parameterType="com.company.dto.Product">
 		update product set cate=#{cate}, pname=#{pname}, price=#{price}, com=#{com}, img=#{img}, img2=#{img2}, img3=#{img3} where pno=#{pno}
 	</update>
 		

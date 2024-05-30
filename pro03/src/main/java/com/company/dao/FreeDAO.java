@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.company.dto.Free;
 
-
 public interface FreeDAO {
 	public int getTotalCount();
 	public List<Free> getFreeList();

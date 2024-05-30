@@ -68,6 +68,43 @@ public class MemberController {
             return "redirect:login.do";
         }
     }
+	@GetMapping("logout.do")
+	public String logout(Model model, RedirectAttributes rttr) {
+		session.invalidate();
+		model.addAttribute("msg", "로그아웃 하였습니다.");
+		return "redirect:/login.do";
+	}
+	
+	@GetMapping("mypage.do")
+	public String myInfo(Model model) {
+		return "member/myInfo";
+	}
+	
+	@GetMapping("myUpdate.do")
+	public String myUpdate(Model model) {
+		return "member/myUpdate";
+	}
+	
+	@PostMapping("myUpdatePro.do")
+	public String myUpdatePro(HttpServletRequest request, Model model, RedirectAttributes rttr) {
+		Member member = new Member();
+		member.setId(request.getParameter("id"));
+        String rawPassword = request.getParameter("pw");
+        member.setPw(rawPassword);
+		member.setName(request.getParameter("name"));
+		member.setEmail(request.getParameter("email"));
+		member.setTel(request.getParameter("tel"));
+		member.setAddr1(request.getParameter("addr1"));
+		member.setAddr2(request.getParameter("addr2"));
+		member.setPostcode(request.getParameter("postcode"));
+		memberService.changeInfo(member);
+		rttr.addFlashAttribute("msg", "회원정보가 수정되었습니다.");
+		session.invalidate();
+		return "redirect:/login.do";
+	}
+    
+    
+    
     @GetMapping("join.do")
     public String join(@ModelAttribute("member") Member member, Model model) {
         model.addAttribute("Member", member);
@@ -110,9 +147,10 @@ public class MemberController {
 	        member.setBirth(birth);
 	        */
 	        member.setPostcode(request.getParameter("postcode"));
-	//        member.setAddr(request.getParameter("addr"));
-	        String addr = request.getParameter("addr1") + " " + request.getParameter("addr2");
-	        member.setAddr(addr);
+	//      member.setAddr(request.getParameter("addr"));
+	        member.setAddr1( request.getParameter("addr1"));
+	        member.setAddr2( request.getParameter("addr2"));
+	        
 	        
 	        memberService.insMember(member);
 	        
@@ -124,6 +162,8 @@ public class MemberController {
 	        rttr.addAttribute("msg", "회원 약관에 동의하시기 바랍니다.");
 	        return "member/agree";
 	    }
+	    
+	    
 	    @PostMapping("idCheck.do")
 	    public void idCheck(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 	        String id = request.getParameter("id");

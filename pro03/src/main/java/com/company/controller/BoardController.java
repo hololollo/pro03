@@ -20,12 +20,13 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@GetMapping("boardList.do")
+	@RequestMapping("boardList.do")
 	public String getBoardList(Model model) {
-		List<Board> boardList = boardService.getBoardList();
-		model.addAttribute("boardList", boardList);
-		return "board/boardList";
+		model.addAttribute("boardList", boardService.getBoardList());
+		return "product/productList";
 	}
+	
+	
 	@RequestMapping("getBoard.do")
 	public String getBoard(@RequestParam("bno") int bno, Model model) {
 		model.addAttribute("board", boardService.getBoard(bno));

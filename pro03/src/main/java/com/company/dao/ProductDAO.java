@@ -3,13 +3,14 @@ package com.company.dao;
 import java.util.List;
 
 import com.company.dto.Product;
+import com.company.vo.ProductVO;
 
 public interface ProductDAO {
-	public Product getTotalCount();
-	public List<Product> getProductList();
-	public List<Product> getProductCateList(String cate);
-	public Product getProduct(int pno);
-	public void insProduct(Product product);
-	public void upProduct(Product product);	
-	public void delProduct(int pno);
+	int getTotalCount();
+	List<ProductVO> getProductList();
+	List<ProductVO> getProductCateList(String cate);
+	ProductVO getProduct(int pno);
+	void insProduct(Product product);
+	void upProduct(Product product);
+	void delProduct(int pno);
 }

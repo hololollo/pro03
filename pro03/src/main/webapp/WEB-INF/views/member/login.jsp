@@ -12,14 +12,8 @@
     <title>로그인</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <jsp:include page="../include/head.jsp"></jsp:include>
     <link rel="stylesheet" href="${kpath }/resources/css/login.css">
-    <style>
-    	.section{
-    		height:700px;
-    		overflow-y:hidden;
-    	}
-    	.table tr td, .table tr th { padding:14px; }  
-    </style>
 </head>
 <body>
 <header>

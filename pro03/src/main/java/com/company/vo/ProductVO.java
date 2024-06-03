@@ -1,5 +1,12 @@
 package com.company.vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductVO {
 	private int pno;
 	private String cate;
@@ -8,8 +15,8 @@ public class ProductVO {
 	private String img;
 	private String img2;
 	private String img3;
-	private int iprice;
-	private int oprice;
+	private int iprice; //in
+	private int oprice; // out
 	private int amount;
 	private int price;
 }

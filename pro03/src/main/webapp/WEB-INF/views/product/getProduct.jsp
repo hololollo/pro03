@@ -151,11 +151,10 @@
 					<hr>
 					<div class="buttons">
 					  <c:if test="${sid.equals('admin') }">
-					  <a href="${kpath }/product/editProduct.do?pno=${product.pno }" class="button is-warning">상품 수정</a>
+					  <a href="${kpath }/product/upProduct.do?pno=${product.pno }" class="button is-warning">상품 수정</a>
 					  <a href="${kpath }/product/delProduct.do?pno=${product.pno }" class="button is-danger is-dark">상품 삭제</a>
 					  </c:if>
 					  <c:if test="${not empty sid }">
-					  	<a href="${kpath }/product/productList.do" class="button is-primary"></a>
 					  <a href="${kpath }/product/productList.do" class="button is-primary">상품 목록</a>
 						</c:if>
 					</div>

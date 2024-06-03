@@ -4,77 +4,82 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sales">
 
-	<!-- 총 거래수 -->
-	<select id="getTotalCount" resultType="int">
-		select COUNT(*) from sales
-	</select>
+    <!-- 총 거래수 -->
+    <select id="getTotalCount" resultType="int">
+        select COUNT(*) from sales
+    </select>
 
-	<!-- has a 관계 표현 -->
-	<resultMap type="sales" id="salesRM">
-		<result property="member.id" column="id"/>
-		<result property="product.pno" column="pno"/>
-	</resultMap>
+    <!-- has a 관계 표현 -->
+    <resultMap type="com.company.dto.Sales" id="salesRM">
+        <id property="no" column="no"/>
+        <result property="product.pno" column="pno"/>
+        <result property="amount" column="amount"/>
+        <result property="tot" column="tot"/>
+        <result property="member.id" column="id"/>
+        <result property="paymethod" column="paymethod"/>
+        <result property="paynum" column="paynum"/>
+        <result property="addr" column="addr"/>
+        <result property="tel" column="tel"/>
+        <result property="delcom" column="delcom"/>
+        <result property="deltel" column="deltel"/>
+        <result property="delno" column="delno"/>
+        <result property="delstatus" column="delstatus"/>
+        <result property="resdate" column="resdate"/>
+        <result property="gtid" column="gtid"/>
+        <result property="rname" column="rname"/>
+    </resultMap>
 
-	<!-- 관리자 판매 전체 목록 -->
-	<select id="getAllSalesList" resultMap="salesRM">
-		select s.no, p.pno, s.amount, s.tot, m.id, s.paymethod, s.paynum, 
-		s.addr, s.tel, s.delcom, s.deltel, s.delno, s.delstatus, s.resdate 
-		from sales s, product p, member m where s.pno=p.pno and s.id=m.id 
-		order by resdate desc
-	</select>	
-
-	<!-- 고객별 구매 목록 -->
 	<select id="getSalesList" resultMap="salesRM">
-		select s.no, p.pno, s.amount, s.tot, m.id, s.paymethod, s.paynum, 
-		s.addr, s.tel, s.delcom, s.deltel, s.delno, s.delstatus, s.resdate 
-		from sales s, product p, member m where s.pno=p.pno and s.id=m.id and id=#{member.id}  
-		order by resdate desc
-	</select>	
-	
-	<!-- 해당 구매 건별 구매 상세 내역 -->
-	<select id="getSales" resultMap="salesRM">
-		select s.no, p.pno, s.amount, s.tot, m.id, s.paymethod, s.paynum,  
-		s.addr, s.tel, s.delcom, s.deltel, s.delno, s.delstatus, s.resdate 
-		from sales s, product p, member m where s.pno=p.pno and s.id=m.id and sno=#{sno}
+    SELECT * FROM sales
 	</select>
-	
-	<!-- 구매 처리 -->
-	<insert id="insSales" parameterType="com.company.dto.Sales">
-		insert into sales values (default, #{product.pno}, #{amount}, #{tot},
-		#{member.id}, #{paymethod}, #{paynum}, #{addr}, #{tel}, default)
-	</insert>
-	
-	<!-- 배송지 변경 -->
-	<update id="upSales" parameterType="com.company.dto.Sales">
-		update sales set addr=#{addr}, tel=#{tel} where sno=#{sno}
-	</update>
-	
-	<!-- 배송처리 -->
-	<update id="upDelivery" parameterType="com.company.dto.Sales">
-		update sales set delcom=#{delcom}, deltel=#{deltel}, delstatus=#{delstatus}, st=#{st} where sno=#{sno}
-	</update>
-	
-	<!-- 반품 처리 -->
-	<delete id="delSales">
-		delete from sales where sno=#{sno}
-	</delete>
-	<insert id="returnSales">
-		insert into inventory values ()
-	</insert>
 
+    <!-- 관리자 판매 전체 목록 -->
+    <select id="getAdminSalesList" resultMap="salesRM">
+        select s.no, p.pno, s.amount, s.tot, m.id, s.paymethod, s.paynum, 
+        s.addr, s.tel, s.delcom, s.deltel, s.delno, s.delstatus, s.resdate 
+        from sales s, product p, member m where s.pno=p.pno and s.id=m.id 
+        order by resdate desc
+    </select> 
 
-<!-- 기존Mapper  
-	<select id="getSalesList" resultType="com.company.dto.Sales">
-		select * from sales order by sno desc
-	</select>
-	<select id="getSales" resultType="com.company.dto.Sales">
-		select * from sales where sno=#{sno}
-	</select>
-	<insert id="insSales">
-		insert into sales values (#{sno}, #{pno}, #{amount}, #{tot}, #{id}, #{paymethod}, #{paynum}, #{dno}, #{addr}, #{tel})
-	</insert>
-		<delete id="delSales">
-		delete from sales where sno=#{sno}
-	</delete>
--->
+    <!-- 고객별 구매 목록 -->
+    <select id="getCustomerSalesList" resultMap="salesRM">
+        select s.no, p.pno, s.amount, s.tot, m.id, s.paymethod, s.paynum, 
+        s.addr, s.tel, s.delcom, s.deltel, s.delno, s.delstatus, s.resdate 
+        from sales s, product p, member m where s.pno=p.pno and s.id=m.id and m.id=#{member.id}  
+        order by resdate desc
+    </select> 
+    
+    <!-- 해당 구매 건별 구매 상세 내역 -->
+    <select id="getSales" resultMap="salesRM">
+        select s.no, p.pno, s.amount, s.tot, m.id, s.paymethod, s.paynum,  
+        s.addr, s.tel, s.delcom, s.deltel, s.delno, s.delstatus, s.resdate 
+        from sales s, product p, member m where s.pno=p.pno and s.id=m.id and s.no=#{no}
+    </select>
+    
+    <!-- 구매 처리 -->
+    <insert id="insSales" parameterType="com.company.dto.Sales">
+        insert into sales (pno, amount, tot, id, paymethod, paynum, addr, tel, gtid, rname)
+        values (#{product.pno}, #{amount}, #{tot}, #{member.id}, #{paymethod}, #{paynum}, #{addr}, #{tel}, #{gtid}, #{rname})
+    </insert>
+    
+    <!-- 배송지 변경 -->
+    <update id="upSales" parameterType="com.company.dto.Sales">
+        update sales set addr=#{addr}, tel=#{tel} where no=#{no}
+    </update>
+    
+    <!-- 배송처리 -->
+    <update id="upDelivery" parameterType="com.company.dto.Sales">
+        update sales set delcom=#{delcom}, deltel=#{deltel}, delstatus=#{delstatus}, st=#{st} where no=#{no}
+    </update>
+    
+    <!-- 반품 처리 -->
+    <delete id="delSales" parameterType="int">
+        delete from sales where no=#{no}
+    </delete>
+    
+    <!-- 반품 시 인벤토리로 상품 반환 -->
+    <insert id="returnSales" parameterType="com.company.dto.Inventory">
+        insert into inventory (pno, amount, remark, resdate) values (#{product.pno}, #{amount}, #{remark}, now())
+    </insert>
+
 </mapper>

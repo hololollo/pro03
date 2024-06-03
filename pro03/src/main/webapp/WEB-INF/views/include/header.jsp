@@ -55,7 +55,7 @@
 					<div class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">고객센터</a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="${kpath }/board/boardList.do">공지사항</a>
+							<a class="navbar-item" href="${kpath }/sales/salesList.do">제품구매</a>
 							<a class="navbar-item">고객의소리</a>
 							<hr class="navbar-divider">
 							<a class="navbar-item">오시는 길</a>

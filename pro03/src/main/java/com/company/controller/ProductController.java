@@ -15,13 +15,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.company.dto.Product;
 import com.company.service.ProductService;
+import com.company.vo.ProductVO;
 
 @Controller
 @RequestMapping("/product/")
@@ -117,9 +117,9 @@ public class ProductController {
 		
     @GetMapping("upProduct.do")
     public String upProduct(@RequestParam("pno") int pno, Model model) {
-    	Product product = productService.getProduct(pno);
+    	ProductVO product = productService.getProduct(pno);
     	model.addAttribute("product", productService.getProduct(pno));
-        return "product/editProduct";
+        return "product/upProduct";
     }
 	
 	@PostMapping("upProductPro.do")
@@ -133,7 +133,7 @@ public class ProductController {
 			@RequestParam("img3") MultipartFile img3, HttpServletRequest request,
 			HttpServletResponse response, Model model) {
 		
-		Product before = productService.getProduct(pno);
+		ProductVO before = productService.getProduct(pno);
 		
 		String uploadDir = request.getServletContext().getRealPath(uploadLoc);
 		File dir = new File(uploadDir);

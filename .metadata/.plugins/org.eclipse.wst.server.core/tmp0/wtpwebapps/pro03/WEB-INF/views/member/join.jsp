@@ -38,10 +38,10 @@
 	                            <input type="text" name="id" id="id" placeholder="아이디 입력" pattern="^[a-z0-9]{5,12}" maxlength="12" class="input" required style="width:700px; float:left;">
 	                            <input type="button" id="idCkBtn" class="button is-primary" value="아이디 중복 체크" onclick="idCheck()" style="margin-left:20px">
 	                            <input type="hidden" name="idck" id="idck" value="no"/>
-	                            <c:if test="${empty qid }">
+	                            <c:if test="${empty sid }">
 	                                <p id="msg" style="clear:both;padding:0.5rem">아직 아이디 중복 체크를 하지 않으셨습니다.</p>
 	                            </c:if>
-	                            <c:if test="${not empty qid }">
+	                            <c:if test="${not empty sid }">
 	                                <p id="msg" style="clear:both;padding:0.5rem">아이디 중복 체크후 수정하였습니다.</p>
 	                            </c:if>
 	                        </td>
@@ -165,7 +165,7 @@
 
             var params = { id: id };
             $.ajax({
-                url: "${path}/member/idCheck.do",
+                url: "${kpath}/member/idCheck.do",
                 type: "post",
                 dataType: "json",
                 data: params,

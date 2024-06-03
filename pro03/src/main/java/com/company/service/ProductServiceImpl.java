@@ -7,30 +7,31 @@ import org.springframework.stereotype.Service;
 
 import com.company.dao.ProductDAO;
 import com.company.dto.Product;
+import com.company.vo.ProductVO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
+
 	@Autowired
 	private ProductDAO productDAO;
-
 	
 	@Override
-	public Product getTotalCount() {
+	public int getTotalCount() {
 		return productDAO.getTotalCount();
 	}
 
 	@Override
-	public List<Product> getProductList() {
+	public List<ProductVO> getProductList() {
 		return productDAO.getProductList();
 	}
 
 	@Override
-	public List<Product> getProductCateList(String cate) {
+	public List<ProductVO> getProductCateList(String cate) {
 		return productDAO.getProductCateList(cate);
 	}
 
 	@Override
-	public Product getProduct(int pno) {
+	public ProductVO getProduct(int pno) {
 		return productDAO.getProduct(pno);
 	}
 
@@ -41,13 +42,12 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void upProduct(Product product) {
-		productDAO.upProduct(product);
-		
+		productDAO.upProduct(product);		
 	}
 
 	@Override
 	public void delProduct(int pno) {
-		productDAO.delProduct(pno);
+		productDAO.delProduct(pno);		
 	}
-	
+
 }
